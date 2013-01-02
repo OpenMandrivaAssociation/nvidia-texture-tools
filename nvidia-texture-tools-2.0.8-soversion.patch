@@ -1,0 +1,69 @@
+diff -up nvidia-texture-tools/CMakeLists.txt.orig nvidia-texture-tools/CMakeLists.txt
+--- nvidia-texture-tools/CMakeLists.txt.orig	2012-05-18 22:58:53.135917349 -0300
++++ nvidia-texture-tools/CMakeLists.txt	2012-05-18 22:59:45.293919346 -0300
+@@ -2,6 +2,9 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6.0)
+ PROJECT(NV)
+ ENABLE_TESTING()
+ 
++set(PACKAGE_VERSION 2.0.8)
++set(LIBRARY_SOVERSION 2.0)
++
+ SET(NV_CMAKE_DIR "${NV_SOURCE_DIR}/cmake")
+ SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${NV_CMAKE_DIR}")
+ 
+diff -up nvidia-texture-tools/src/nvcore/CMakeLists.txt.orig nvidia-texture-tools/src/nvcore/CMakeLists.txt
+--- nvidia-texture-tools/src/nvcore/CMakeLists.txt.orig	2012-05-18 22:58:59.455917596 -0300
++++ nvidia-texture-tools/src/nvcore/CMakeLists.txt	2012-05-18 23:00:45.677921655 -0300
+@@ -35,6 +35,10 @@ ENDIF(UNIX)
+ IF(NVCORE_SHARED)
+ 	ADD_DEFINITIONS(-DNVCORE_SHARED=1)
+ 	ADD_LIBRARY(nvcore SHARED ${CORE_SRCS})
++	SET_TARGET_PROPERTIES(nvcore
++		PROPERTIES
++		VERSION ${PACKAGE_VERSION}
++		SOVERSION ${LIBRARY_SOVERSION})
+ ELSE(NVCORE_SHARED)
+ 	ADD_LIBRARY(nvcore ${CORE_SRCS})
+ ENDIF(NVCORE_SHARED)
+diff -up nvidia-texture-tools/src/nvimage/CMakeLists.txt.orig nvidia-texture-tools/src/nvimage/CMakeLists.txt
+--- nvidia-texture-tools/src/nvimage/CMakeLists.txt.orig	2012-05-18 22:59:07.007917887 -0300
++++ nvidia-texture-tools/src/nvimage/CMakeLists.txt	2012-05-18 23:00:58.557922157 -0300
+@@ -55,6 +55,10 @@ ADD_DEFINITIONS(-DNVIMAGE_EXPORTS)
+ IF(NVIMAGE_SHARED)	
+ 	ADD_DEFINITIONS(-DNVIMAGE_SHARED=1)
+ 	ADD_LIBRARY(nvimage SHARED ${IMAGE_SRCS})
++	SET_TARGET_PROPERTIES(nvimage
++		PROPERTIES
++		VERSION ${PACKAGE_VERSION}
++		SOVERSION ${LIBRARY_SOVERSION})
+ ELSE(NVIMAGE_SHARED)
+ 	ADD_LIBRARY(nvimage ${IMAGE_SRCS})
+ ENDIF(NVIMAGE_SHARED)
+diff -up nvidia-texture-tools/src/nvmath/CMakeLists.txt.orig nvidia-texture-tools/src/nvmath/CMakeLists.txt
+--- nvidia-texture-tools/src/nvmath/CMakeLists.txt.orig	2012-05-18 22:59:13.119918119 -0300
++++ nvidia-texture-tools/src/nvmath/CMakeLists.txt	2012-05-18 23:01:05.373922375 -0300
+@@ -21,6 +21,10 @@ ADD_DEFINITIONS(-DNVMATH_EXPORTS)
+ IF(NVMATH_SHARED)
+ 	ADD_DEFINITIONS(-DNVMATH_SHARED=1)
+ 	ADD_LIBRARY(nvmath SHARED ${MATH_SRCS})
++	SET_TARGET_PROPERTIES(nvmath
++		PROPERTIES
++		VERSION ${PACKAGE_VERSION}
++		SOVERSION ${LIBRARY_SOVERSION})
+ ELSE(NVMATH_SHARED)
+ 	ADD_LIBRARY(nvmath ${MATH_SRCS})
+ ENDIF(NVMATH_SHARED)
+diff -up nvidia-texture-tools/src/nvtt/CMakeLists.txt.orig nvidia-texture-tools/src/nvtt/CMakeLists.txt
+--- nvidia-texture-tools/src/nvtt/CMakeLists.txt.orig	2012-05-18 22:59:21.607918449 -0300
++++ nvidia-texture-tools/src/nvtt/CMakeLists.txt	2012-05-18 23:01:12.133922682 -0300
+@@ -46,6 +46,10 @@ ADD_DEFINITIONS(-DNVTT_EXPORTS)
+ IF(NVTT_SHARED)
+ 	ADD_DEFINITIONS(-DNVTT_SHARED=1)
+ 	ADD_LIBRARY(nvtt SHARED ${NVTT_SRCS})
++	SET_TARGET_PROPERTIES(nvtt
++		PROPERTIES
++		VERSION  ${PACKAGE_VERSION}
++		SOVERSION ${LIBRARY_SOVERSION})
+ ELSE(NVTT_SHARED)
+ 	ADD_LIBRARY(nvtt ${NVTT_SRCS})
+ ENDIF(NVTT_SHARED)

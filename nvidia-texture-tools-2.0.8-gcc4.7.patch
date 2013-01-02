@@ -1,0 +1,14 @@
+diff -up nvidia-texture-tools/src/nvcore/Debug.cpp.orig nvidia-texture-tools/src/nvcore/Debug.cpp
+--- nvidia-texture-tools/src/nvcore/Debug.cpp.orig	2012-05-18 22:10:11.359805471 -0300
++++ nvidia-texture-tools/src/nvcore/Debug.cpp	2012-05-18 22:11:15.588807912 -0300
+@@ -34,6 +34,10 @@
+ #	endif
+ #endif
+ 
++#if NV_OS_LINUX
++#	include <unistd.h>	// getpid
++#endif
++
+ #if NV_OS_DARWIN
+ #	include <unistd.h>	// getpid
+ #	include <sys/types.h>

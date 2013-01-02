@@ -1,0 +1,43 @@
+diff -up nvidia-texture-tools/src/nvcore/CMakeLists.txt.orig nvidia-texture-tools/src/nvcore/CMakeLists.txt
+--- nvidia-texture-tools/src/nvcore/CMakeLists.txt.orig	2012-05-18 23:32:42.120995054 -0300
++++ nvidia-texture-tools/src/nvcore/CMakeLists.txt	2012-05-18 23:33:18.078996428 -0300
+@@ -47,5 +47,5 @@ TARGET_LINK_LIBRARIES(nvcore ${LIBS})
+ 
+ INSTALL(TARGETS nvcore
+ 	RUNTIME DESTINATION bin
+-	LIBRARY DESTINATION lib
++	LIBRARY DESTINATION ${LIB_INSTALL_DIR}
+ 	ARCHIVE DESTINATION lib/static)
+diff -up nvidia-texture-tools/src/nvimage/CMakeLists.txt.orig nvidia-texture-tools/src/nvimage/CMakeLists.txt
+--- nvidia-texture-tools/src/nvimage/CMakeLists.txt.orig	2012-05-18 23:32:37.775994885 -0300
++++ nvidia-texture-tools/src/nvimage/CMakeLists.txt	2012-05-18 23:33:08.398996062 -0300
+@@ -67,6 +67,6 @@ TARGET_LINK_LIBRARIES(nvimage ${LIBS} nv
+ 
+ INSTALL(TARGETS nvimage
+ 	RUNTIME DESTINATION bin
+-	LIBRARY DESTINATION lib
++	LIBRARY DESTINATION ${LIB_INSTALL_DIR}
+ 	ARCHIVE DESTINATION lib/static)
+ 
+diff -up nvidia-texture-tools/src/nvmath/CMakeLists.txt.orig nvidia-texture-tools/src/nvmath/CMakeLists.txt
+--- nvidia-texture-tools/src/nvmath/CMakeLists.txt.orig	2012-05-18 23:32:31.192994634 -0300
++++ nvidia-texture-tools/src/nvmath/CMakeLists.txt	2012-05-18 23:33:12.854996216 -0300
+@@ -33,5 +33,5 @@ TARGET_LINK_LIBRARIES(nvmath ${LIBS} nvc
+ 
+ INSTALL(TARGETS nvmath
+ 	RUNTIME DESTINATION bin
+-	LIBRARY DESTINATION lib
++	LIBRARY DESTINATION ${LIB_INSTALL_DIR}
+ 	ARCHIVE DESTINATION lib/static)
+diff -up nvidia-texture-tools/src/nvtt/CMakeLists.txt.orig nvidia-texture-tools/src/nvtt/CMakeLists.txt
+--- nvidia-texture-tools/src/nvtt/CMakeLists.txt.orig	2012-05-18 23:32:18.184994143 -0300
++++ nvidia-texture-tools/src/nvtt/CMakeLists.txt	2012-05-18 23:32:57.542995724 -0300
+@@ -58,7 +58,7 @@ TARGET_LINK_LIBRARIES(nvtt ${LIBS} nvcor
+ 
+ INSTALL(TARGETS nvtt 
+ 	RUNTIME DESTINATION bin
+-	LIBRARY DESTINATION lib
++	LIBRARY DESTINATION ${LIB_INSTALL_DIR}
+ 	ARCHIVE DESTINATION lib/static)
+ 
+ INSTALL(FILES nvtt.h DESTINATION include/nvtt)
