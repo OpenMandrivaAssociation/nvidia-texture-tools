@@ -2,7 +2,7 @@
 
 Name:		nvidia-texture-tools
 Version:	2.0.8
-Release:	4
+Release:	5
 Summary:	Collection of image processing and texture manipulation tools
 Group:		System/Libraries
 License:	MIT
