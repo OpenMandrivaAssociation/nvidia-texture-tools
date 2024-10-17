@@ -6,7 +6,7 @@ Release:	2
 Summary:	Collection of image processing and texture manipulation tools
 Group:		System/Libraries
 License:	MIT
-URL:		http://code.google.com/p/nvidia-texture-tools/
+URL:		https://code.google.com/p/nvidia-texture-tools/
 Source0:	http://nvidia-texture-tools.googlecode.com/files/%{name}-%{version}-1.tar.gz
 BuildRequires:	cmake
 BuildRequires:	help2man
